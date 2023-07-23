@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SWG game</title>
+      <link rel="stylesheet" href="style.css">
+
+
+      <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+
+* {
+    margin: 0%;
+    padding: 0px;
+}
+
+
+body {
+    background-color: rgb(255, 255, 255);
+    
+}
+
+
+
+.con {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.text {
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+.load {
+    font-size: 26px;
+    margin: auto;
+    font-weight: bold;
+    text-align: center;
+    padding: 20px;
+}
+
+
+
+
+.box img {
+    position: relative;
+    margin: auto;
+    width: 180px; 
+    height: auto; 
+}
+
+      </style>
+</head>
+<body>
+     
+    <div class="text" >
+        <div class="load">Getting things Ready</div>
+    </div>
+
+    <div class="con">
+
+      <div class="box"></div>
+    </div>
+
+
+
+
+
+    <script>
+        // Wait for the page to load completely
+        window.addEventListener("load", function () {
+            // Simulate a loading process (you can replace this with actual loading logic)
+            setTimeout(function () {
+                // Hide the loader
+                document.querySelector(".load").style.display = "none";
+    
+                // Show the box to display the GIFs
+                document.querySelector(".box").style.display = "block";
+    
+                // Display GIFs one by one with 2 seconds delay between each
+                displayGifSequentially(["snake_ani.gif", "water_ani.gif", "gun_ani.gif"], 2000);
+            }, 2000); // Simulated loading time (2 seconds). You can adjust this value as needed.
+    
+            // Function to display GIFs one by one with a delay
+            function displayGifSequentially(gifs, delay) {
+                let index = 0;
+                function displayNextGif() {
+                    if (index >= gifs.length) {
+                        // All GIFs have been displayed, hide the box
+                        document.querySelector(".box").style.display = "none";
+                        
+                        // Navigate to content.html
+                        window.location.href = "content.html";
+                        return;
+                    }
+                    const img = new Image();
+                    img.src = gifs[index];
+                    img.onload = function () {
+                        const box = document.querySelector(".box");
+                        box.innerHTML = ''; // Clear previous content (remove previous GIF if any)
+                        box.appendChild(img);
+                        setTimeout(function () {
+                            index++;
+                            displayNextGif();
+                        }, delay);
+                    };
+                }
+                displayNextGif();
+            }
+        });
+    </script>
+</body>
+</html>

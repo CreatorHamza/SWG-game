@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SW game</title>
+    <link rel="stylesheet" href="content.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+
+<body>
+
+    <h1 id="h">Welcome to Snake Water Gun Game</h1>
+
+    <div class="grid">
+        <div class="sqr" id="sqr1"> <img id="dynamic" src="" alt=""></div>
+        <div class="wrapper">
+            <a  onclick="auto()" href="#"><span>COMPETE</span></a>
+          </div>
+        <div class="sqr" id="sqr2"><img id="CPU" src="" alt=""> </div>
+
+        <div class="c1">
+            <div onclick="Snakeimg()" class="cir" id="cir1"></div>
+            <div onclick="Waterimg()" class="cir" id="cir2"></div>
+            <div onclick="Gunimg()" class="cir" id="cir3"></div>
+        </div>
+
+
+        <div class="c2">
+            <p>CPU</p>
+        </div>
+
+
+    </div>
+
+
+    <button id="ab" class="btn btn-1 btn-sep icon-info">GUIDE</button>
+
+    <script src="engine.js"></script>
+    <script>
+        document.getElementById("ab").addEventListener("click", function() {
+          // Redirect to content.html
+          window.location.href = "Guide.html";
+        });
+      </script>
+</body>
+
+</html>
